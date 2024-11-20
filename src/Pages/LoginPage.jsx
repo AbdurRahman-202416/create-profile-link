@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   return (
-    <>
-      <div className="container mx-auto w-full flex flex-col items-center justify-center min-h-screen bg-white">
-        <div className="flex min-h-full w-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <> 
+    <NavbarMini />
+      <div className="container  mx-auto w-full flex flex-col items-center justify-center min-h-screen bg-white">
+        <div className="flex   shadow-md min-h-full sm:w-[80%] lg:w-[50%] md:w-[40%] flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <NavbarMini />
+           
             <h2 className="mt-10 text-left text-2xl font-bold tracking-wide text-gray-900">
               Login
             </h2>
@@ -34,7 +35,7 @@ const LoginPage = () => {
                     required
                     autoComplete="email"
                     placeholder="e.g. alex@email.com"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 pl-10"
+                    className="block w-full h-12  active:bg-gray-100 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1  ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-gray-100 sm:text-sm/6 pl-10"
                   />
                   <div className="absolute inset-y-0 left-0 pl-0 mt-5   flex items-center pointer-events-none">
                     <svg
@@ -71,7 +72,7 @@ const LoginPage = () => {
                     required
                     autoComplete="current-password"
                     placeholder="Enter your password"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 pl-10"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1  ring-gray-300 placeholder:text-gray-400 focus:ring-1 h-12  focus:ring-gray-100 sm:text-sm/6 pl-10"
                   />
                   <svg
                     className="absolute inset-y-0 ml-2 mt-3 text-gray-500"
@@ -92,7 +93,7 @@ const LoginPage = () => {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full active:border-gray-300 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Login
                 </button>
@@ -104,8 +105,8 @@ const LoginPage = () => {
 
                 <p className="text-center  text-gray-500">
                   <Link
-                    to="/SignUpPage"
-                    className="font-semibold text-sm/tight text-indigo-500 hover:text-indigo-700"
+                    to="/Signup"
+                    className=" text-sm/tight text-indigo-500 hover:text-indigo-700"
                   >
                     Create an account
                   </Link>

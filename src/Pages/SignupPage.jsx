@@ -1,15 +1,17 @@
 import React from "react";
 import NavbarMini from "../Component/NavbarMini";
 import { Link } from "react-router-dom";
+import Navbar from "../Component/Navbar";
 
 const SignupPage = () => {
   return (
     <>
+ 
       <section className=" w-full dark:bg-gray-900">
         <div className="flex flex-col  max-w-full items-center  justify-start px-6 py-8 mx-auto  md:h-screen lg:py-0">
           <NavbarMini />
-          <div className="w-full mt-20 bg-white rounded-lg dark:border  sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <div className="w-full mt-20 bg-white rounded-lg dark:border sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div className="p-6 space-y-4  shadow-md md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Create an account
               </h1>
@@ -29,7 +31,7 @@ const SignupPage = () => {
                     type="email"
                     name="email"
                     id="email"
-                    className="bg-gray-50 border pl-7 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-1 focus:border-primary-300 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 border h-12  pl-7 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-1 focus:border-primary-300 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="e.g. alex@email.com"
                     required
                   />
@@ -61,7 +63,7 @@ const SignupPage = () => {
                     name="password"
                     id="password"
                     placeholder="At least 8 characters"
-                    className="bg-gray-50 border pl-8 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 border h-12  pl-8 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                   />
 
@@ -93,7 +95,7 @@ const SignupPage = () => {
                     name="confirm-password"
                     id="confirm-password"
                     placeholder="At least 8 characters"
-                    className="bg-gray-50 pl-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 h-12  pl-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                   />
                   <div className="absolute inset-y-0 left-0 pl-0 mt-5   flex items-center pointer-events-none">
