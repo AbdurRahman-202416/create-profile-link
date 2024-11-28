@@ -1,16 +1,50 @@
 import React from "react";
+import httpRequest from "../Axios";
+import { notify, notifySuccess } from "./Toaster";
 
-const LinkForm = () => {
+const LinkForm = ({ linkCount, item, index, key, setLinkCount }) => {
+
+  const removeLink = async (currentLinkCount) => {
+    const id = currentLinkCount.id;
+    let type = currentLinkCount.type;
+    console.log(id)
+    let prevArr = linkCount.filter(
+      (item, idX) => currentLinkCount.id !== item.id
+    );
+
+    setLinkCount(prevArr);
+    if (type == "client") {
+      notifySuccess("Remove Succesfull")
+      return;
+    }
+    else {
+      try {
+        const respose = await httpRequest.delete(`links/${id}`)
+        console.log(respose)
+        if (respose.status == 200) {
+          notifySuccess("Link Delete Succesfull");
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    console.log(prevArr);
+  };
+
   return (
-    <div className="self-stretch w-full   p-0 m-0 bg-gray-500 rounded-xl flex flex-col justify-center items-start gap-3">
+    <div className="self-stretch w-full  my-2 rounded-md  p-0 m-0rounded-xl flex flex-col justify-center items-start gap-3">
       <div className="self-stretch w-full h-auto p-5 rounded-xl flex flex-col justify-center items-center gap-3">
         <div className="self-stretch flex justify-between items-center  ">
           <div className=" items-center">
-            <button className="text-[#727272] btn mr-5 bg-orange-50 w-[80px] rounded-md font-bold font-['Instrument Sans']">
-              Link #1
+            <button className="text-[#727272] btn mr-5 bg-orange-50 w-[80px] rounded-md font-bold ">
+              Link {index + 1}
             </button>
           </div>
-          <button className="btn rounded-md w-[100px] ml-5 h-[30px] border active:border-cyan-600">
+          <button
+            onClick={() => removeLink(linkCount[index])}
+            className="btn rounded-md w-[100px] ml-5 h-[30px] border active:border-cyan-600"
+          >
             Remove
           </button>
         </div>
@@ -20,8 +54,20 @@ const LinkForm = () => {
             <label className="text-[#333333] text-xs">Platform</label>
             <div className="flex items-center gap-3 px-3 py-3 bg-white rounded-lg border">
               <select
-                id="platform_select"
-                className=" w-full text-sm text-gray-600 bg-transparent border-gray-200 rounded-lg focus:outline-none focus:ring-0 focus:border-gray-200 dark:text-gray-400 dark:border-gray-700"
+                value={item.platform}
+                onChange={(e) => {
+                  let arr = linkCount.map((singleValue) => {
+                    if (singleValue.id === item.id) {
+                      return {
+                        ...singleValue,
+                        platform: e.target.value,
+                      };
+                    }
+                    return singleValue;
+                  });
+                  setLinkCount(arr);
+                }}
+                className="w-full text-sm text-gray-600 bg-transparent border-gray-200 rounded-lg focus:outline-none focus:ring-0 focus:border-gray-200 dark:text-gray-400 dark:border-gray-700"
               >
                 <option selected>Choose a platform</option>
                 <option value="github">GitHub</option>
@@ -40,7 +86,25 @@ const LinkForm = () => {
             <label className="text-[#333333] text-xs m-2">Link</label>
             <div className="relative flex items-center w-full">
               <input
-                type="url"
+                type="text"
+                value={item.url}
+                onChange={(e) => {
+                  //step 1, modify the previous array to a new array
+                  let newArray = linkCount.map((value, idex) => {
+                    console.log(value.id, key, item.id);
+                    if (value.id == item.id) {
+                      let obj = {
+                        ...value,
+                        url: e.target.value,
+                      };
+
+                      return obj;
+                    } else return value;
+                  });
+                  setLinkCount(newArray);
+
+                  // step 2, set the new array
+                }}
                 placeholder="e.g. https://www.github.com/johnappleseed"
                 className="h-12 pl-8 border border-gray-300 text-gray-900 text-sm rounded-lg w-full focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
@@ -61,11 +125,6 @@ const LinkForm = () => {
                 </svg>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="h-[46px] px-[27px]  mt-4 bg-[#623bff] w-full  rounded-lg flex-col justify-center items-center gap-2 inline-flex">
-          <div className="text-white text-base font-semibold font-['Instrument Sans'] leading-normal">
-            Save
           </div>
         </div>
       </div>

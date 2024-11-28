@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("src/assets/assets/fonts/InstrumentSans-VariableFont_wdth,wght.ttf")
+    format("truetype");
+}
+body {
+  font-family: "MyCustomFont", sans-serif;
+}
+.mainBody {
+  font-family: "MyCustomFont", sans-serif;
+}
+
+.fade-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Cover the entire screen */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8); /* Light background */
+  z-index: 999; /* Ensure it's on top of other elements */
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Fade effect */
+}
+
+.fade-loader.show {
+  opacity: 1; /* Show the loader */
+}
+/* body{
+  text-align: justify;
+ color: green;
+} */

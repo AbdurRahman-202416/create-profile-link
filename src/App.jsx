@@ -15,24 +15,40 @@ import UserDashBoard from "./Pages/UserDashBoard";
 import Preview from "./Pages/Preview";
 import UserProfile from "./Pages/UserProfile";
 import HomePage from "./Pages/HomePage";
+import { ToastContainer } from "react-toastify";
+import ShareProfile from "./Pages/ShareProfile";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        <Route path="/" element={<HomePage/>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Signup" element={<SignupPage />} />
         <Route path="/dashboard" element={<UserDashBoard />} />
         <Route path="/Preview" element={<Preview />} />
-
-        <Route path="*" element={<NotFountPage />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/share/:username" element={<ShareProfile />} />
+        {/* <Route path="/share" element={<ShareProfile />} /> */}
+        <Route path="*" element={<NotFountPage />} />
       </Route>
-    )
+    ),
+    {
+      future: {
+        v7_partialHydration: true,
+        v7_skipActionErrorRevalidation: true,
+        v7_normalizeFormMethod: true,
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+        v7_fetcherPersist: true,
+        v7_fetcherPersist: true,
+      },
+    }
   );
   return (
     <>
+
+      <ToastContainer />
       <RouterProvider router={router} />
     </>
   );

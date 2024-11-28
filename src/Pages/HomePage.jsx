@@ -1,8 +1,9 @@
 "use client";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavbarMini from "../Component/NavbarMini";
 import bgImage from "../assets/images/bg.png";
+import { notify } from "../Component/Toaster";
 
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,13 +11,16 @@ const HomePage = () => {
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
+  useEffect(() => {
+    notify("Hello, Welcome to Devlinks");
+  }, []);
 
   return (
-    <div className="w-full">
-      <nav className="m-1 mb-4 h-[60px] bg-indigo-50 shadow-md">
+    <div className="w-full  ">
+      <nav className="m-1 mb-4 h-[60px] bg-indigo-500 rounded-sm shadow-md">
         <div className="md:flex items-center justify-between py-2 px-8 md:px-12">
           <div className="flex justify-between items-center">
-            <div className="text-2xl shadow-2xl font-bold text-gray-800 md:text-3xl">
+            <div className="text-2xl bg-white rounded-md px-4 shadow-4xl shadow-indigo-900 font-bold text-gray-800 md:text-3xl">
               <NavbarMini />
             </div>
             <div className="md:hidden">
@@ -41,43 +45,49 @@ const HomePage = () => {
           <div
             className={`${
               isMenuOpen ? "block" : "hidden"
-            } md:flex flex-col md:flex-row -mx-2`}
+            } md:flex flex-col text-2xl my-0 sm:my-0 font-bold  px-20 sm:px-0 mx-[50%] text-[]  sm:text-white md:flex-row sm:mx-2`}
           >
             <Link
               to="/login"
-              className="text-gray-800 rounded hover:bg-[#633CFF] hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2"
+              className=" rounded hover:bg-[#ffff] hover:text-gray-900 hover:font-medium py-2 px-2 md:mx-2"
             >
               Login
             </Link>
+            <br className="sm:block" />
             <Link
               to="/signup"
-              className="text-gray-800 rounded hover:bg-[#633CFF] hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2"
+              className=" rounded hover:bg-[#fff] hover:text-gray-900 hover:font-medium py-0 sm:py-2 px-0 sm:px-2 md:mx-2"
             >
-              Signup
+              Singup
             </Link>
           </div>
         </div>
       </nav>
-
-      {/* Hero Section */}
-
-      <div className="flex bg-gray-100 flex-wrap">
+      {/* bg-gradient-to-r from-pink-500 to-blue-500  */}
+      <div
+        className={`${
+          isMenuOpen ? "my-16 " : "my-0"
+        } flex  bg-[#10375C]   mx-1 rounded-sm flex-wrap `}
+      >
         <div className="w-full sm:w-8/12 mb-10">
           <div className="container mx-auto h-full sm:p-10">
             <header className="container px-4 lg:flex mt-10 items-center h-full lg:mt-0">
               <div className="w-full">
-                <h1 className="text-4xl sm:text-sm lg:text-5xl font-bold">
+                <h1 className="text-1xl bg-clip-text text-transparent text-white text-justify leading-5 tracking-[0.3px] sm:tracking-[0.1px] sm:text-lg lg:text-5xl font-bold">
                   Centralize your digital
-                  <span className="text-green-700"> Identity.</span> Manage and
+                  <span className="text-green-300"> Identity.</span> Manage and
                   share your links with a single profile.
                 </h1>
-                <div className="w-40 h-1 bg-green-700 my-4"></div>
-                <p className="text-xl mb-10">
-                  Simplify your online footprint. Create a profile to organize
-                  your social media and other links.
-                </p>
+                <div className="w-[60%] h-1 bg-green-300 my-4"></div>
+
+                <marquee>
+                  <p className="text-sm sm:text-2xl text-justify tracking-tighter font-semibold text-white leading-5  my-4  mb-10">
+                    Simplify your online footprint. Create a profile to organize
+                    your social media and other links.
+                  </p>
+                </marquee>
                 <Link to="/Login">
-                  <button className="bg-[#633CFF] active:scale-110 hover:rotate-4  text-white text-2xl font-medium px-4 py-2 rounded shadow">
+                  <button className="bg-[#633CFF] transition-all duration-300 active:scale-110 hover:rotate-4  text-white text-sm sm:text-lg   font-medium px-4 py-2 rounded shadow">
                     Get Started
                   </button>
                 </Link>
@@ -88,8 +98,8 @@ const HomePage = () => {
         <img
           src={bgImage}
           alt="Preview"
-          className="w-full hover:scale-110 rounded-3xl  hover:rotate-4 h-48 object-cover sm:h-screen sm:w-4/12"
-          onMouseEnter={() => {}}
+          className="w-full hover:scale-110  rounded-md my-2  transition-all duration-300  hover:rotate-4 h-48 object-cover sm:h-screen sm:w-4/12"
+          
         />
       </div>
     </div>
