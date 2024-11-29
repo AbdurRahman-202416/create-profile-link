@@ -66,7 +66,7 @@ const LoginPage = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-gray-500"
                 >
                   Email address
                 </label>
@@ -104,7 +104,7 @@ const LoginPage = () => {
                 <div className="flex items-center justify-between">
                   <label
                     htmlFor="password"
-                    className="block text-sm/6 font-medium text-gray-900"
+                    className="block text-sm/6 font-medium text-gray-600"
                   >
                     Password
                   </label>
@@ -122,10 +122,10 @@ const LoginPage = () => {
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1  ring-gray-300 placeholder:text-gray-400 focus:ring-1 h-12  focus:ring-gray-100 sm:text-sm/6 pl-10"
                   />
                   <svg
-                    className="absolute inset-y-0  mt-4 ml-3  text-gray-500"
+                    className="absolute inset-y-0  mt-4 ml-3 text-gray-500"
                     width={22}
                     height={25}
-                    fillRule="none"
+                    fillRule="inherit"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >

@@ -23,6 +23,7 @@ function App() {
     createRoutesFromElements(
       <Route>
         <Route path="/" element={<HomePage />} />
+        <Route path="/create-profile-link" element={<HomePage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Signup" element={<SignupPage />} />
         <Route path="/dashboard" element={<UserDashBoard />} />

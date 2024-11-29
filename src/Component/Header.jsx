@@ -23,7 +23,7 @@ const Header = ({ isPublished, getProfileInfo }) => {
       let finalLink = `${link}/share/${username}`;
       navigator.clipboard?.writeText(finalLink);
       getProfileInfo();
-      notifySuccess("Link Copied");
+      notifySuccess("Link Copied and public Link are Publish");
     } catch (error) {
       console.log(error);
     } finally {
@@ -36,7 +36,7 @@ const Header = ({ isPublished, getProfileInfo }) => {
     setTimeout(() => {
       setLoader(false)
       Navigate("/dashboard");
-    }, 500);
+    }, 300);
   }
   const UnpublishInfo = async () => {
     setLoader(true)
@@ -47,6 +47,10 @@ const Header = ({ isPublished, getProfileInfo }) => {
       const responce = await httpRequest.patch("auth/profile/update", data);
       console.log(responce);
       getProfileInfo();
+
+      if(responce.status==200){
+        notifySuccess("Unpublish Success !,Nobody can't Access Your Profile Details ");
+      }
 
     }
     catch (err) {

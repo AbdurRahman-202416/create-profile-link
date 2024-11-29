@@ -41,7 +41,7 @@ const ShareProfile = (props) => {
 
 
 
-        <div className="self-stretch  h-[80%] rounded-lg shadow-lg  flex-col justify-start items-start gap-14 inline-flex">
+        <div className="self-stretch   h-[80%] rounded-lg shadow-lg  flex-col justify-start items-start gap-14 inline-flex">
           <div className="self-stretch h-[209px]  flex-col justify-start items-center gap-[20px] flex">
             <img
               className="w-[150px] h-[150px] rounded-full shadow-xl shadow-blue-400  border-4 border-[#9179f1]"
@@ -57,12 +57,12 @@ const ShareProfile = (props) => {
             </div>
           </div>
 
-          <div className="self-stretch h-[664px] mx-4 flex-col justify-start items-start gap-5 flex">
+          <div className="self-stretch h-[664px] mx-10 flex-col justify-start items-start gap-1 flex">
             {profileDetails.links.map((SingleLink, index) => {
               return (
                 <a
                   href={SingleLink.url}
-                  className="self-stretch p-4 hover:scale-105 hover:rotate-4 bg-[#191919] rounded-lg justify-start items-center gap-2 inline-flex"
+                  className={`self-stretch color-youtube p-2 hover:scale-105 hover:rotate-4 bg-[#191919] color-${SingleLink.platform} rounded-lg justify-start items-center gap-2 inline-flex`}
                 > <img className="h-[30px] w-[30px]" src={SingleLink.iconUrl} alt="" />
                   <div className="grow shrink basis-0   text-white text-base font-normal leading-normal">
                     {SingleLink.platform}

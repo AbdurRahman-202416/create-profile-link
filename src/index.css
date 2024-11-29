@@ -23,7 +23,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.8); /* Light background */
+  background: rgba(211, 233, 233, 0.8); /* Light background */
   z-index: 999; /* Ensure it's on top of other elements */
   opacity: 0;
   transition: opacity 0.5s ease; /* Fade effect */
@@ -32,7 +32,29 @@ body {
 .fade-loader.show {
   opacity: 1; /* Show the loader */
 }
-/* body{
-  text-align: justify;
- color: green;
-} */
+
+
+.color-youtube{
+  background-color:#ee3838;
+  
+}
+.color-freecodecamp{
+  background-color:#302267;
+}
+.color-codewars{
+  background-color:rgb(68, 16, 68);
+}
+.color-linkedin{
+  background-color:#159efa;
+}
+.color-github{
+  background-color:black;
+}
+.color-dev.to{
+  background-color:rgb(70, 66, 66);
+}
+
+.ForBgImage{
+  background-image: url('src/assets/images/privew.png');
+  background-repeat: no-repeat;
+}
