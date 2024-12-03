@@ -38,9 +38,6 @@ const ShareProfile = (props) => {
         </div>
       ) : <div className="w-[400px] sm:w-[450px] h-[90%] px-4  bg-white flex-col lg:mx-[35%] md:mx-[35%]   justify-center items-center  inline-flex">
 
-
-
-
         <div className="self-stretch   h-[80%] rounded-lg shadow-lg  flex-col justify-start items-start gap-14 inline-flex">
           <div className="self-stretch h-[209px]  flex-col justify-start items-center gap-[20px] flex">
             <img
